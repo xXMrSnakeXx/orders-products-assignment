@@ -1,4 +1,4 @@
-import { Pool, PoolConfig } from 'pg';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -15,13 +15,11 @@ if (!PGHOST || !POSTGRES_USER || !POSTGRES_PASSWORD || !POSTGRES_DB) {
   throw new Error('❌ Required environment variables for database are missing');
 }
 
-const config: PoolConfig & { family: number } = {
+export const pool = new Pool({
   host: process.env.PGHOST,
   port: Number(process.env.PGPORT),
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  family: 4,
-};
-
-export const pool = new Pool(config);
+  ssl: { rejectUnauthorized: false },
+});
