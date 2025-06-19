@@ -9,10 +9,12 @@ const { PGHOST, PGPORT, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB } = proces
 if (!PGHOST || !POSTGRES_USER || !POSTGRES_PASSWORD || !POSTGRES_DB) {
     throw new Error('❌ Required environment variables for database are missing');
 }
-export const pool = new Pool({
-    host: PGHOST,
-    port: Number(PGPORT) || 5432,
-    user: POSTGRES_USER,
-    password: POSTGRES_PASSWORD,
-    database: POSTGRES_DB,
-});
+const config = {
+    host: process.env.PGHOST,
+    port: Number(process.env.PGPORT),
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    family: 4,
+};
+export const pool = new Pool(config);
