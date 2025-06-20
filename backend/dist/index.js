@@ -10,7 +10,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config({
+    path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV || 'development'}`),
+});
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
@@ -25,5 +27,6 @@ app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
 setupSocket(io);
 server.listen(PORT, () => {
+    console.log('first', process.env.NODE_ENV);
     console.log(`🚀 Server listening on http://localhost:${PORT}`);
 });
