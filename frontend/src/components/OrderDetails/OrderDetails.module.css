@@ -1,0 +1,72 @@
+.order-details {
+  position: absolute;
+  top: 68px;
+  right: -170px;
+  width: 600px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.order-details__close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 32px;
+  height: 32px;
+  background-color: #f0f4f8;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-details__close-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.order-details__add-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  background-color: #7cb342;
+  color: white;
+  border-radius: 50%;
+}
+
+.order-details__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.order-details__dot--green {
+  background-color: #b5d940;
+}
+
+.order-details__dot--black {
+  background-color: #2f2f2f;
+}
+
+.order-details__status--free {
+  color: #b5d940;
+}
+
+.order-details__status--repair {
+  color: #2f2f2f;
+}
+
+.order-details__delete-btn {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}

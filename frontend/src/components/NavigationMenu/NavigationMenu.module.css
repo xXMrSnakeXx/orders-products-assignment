@@ -1,0 +1,54 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #f7f8fa;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #ddd;
+  margin-top: 80px;
+}
+
+.menu__avatar_wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.menu__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu__settings_icon {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu__nav_item {
+  color: #333;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.menu__nav_item:hover,
+.menu__nav_item--active {
+  background-color: #e7f0ea;
+  border-left: 4px solid #7cb342;
+  color: #1b5e20;
+  width: 220px;
+}
