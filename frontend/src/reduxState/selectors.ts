@@ -15,7 +15,7 @@ export const selectFilter = (state: RootState) => state.filter.type;
 export const filteredProducts = createSelector(
   [selectProducts, selectFilter],
   (products: Product[], filter: string): Product[] => {
-    if (!filter) return products;
+    if (!filter || filter === "Все продукты") return products;
     return products.filter(
       (product) => product.type?.toLowerCase() === filter.toLowerCase()
     );
