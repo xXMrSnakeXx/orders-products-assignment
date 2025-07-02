@@ -27,6 +27,6 @@ app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
 setupSocket(io);
 server.listen(PORT, () => {
-    console.log('first', process.env.NODE_ENV);
+    console.log('NODE_ENV', process.env.NODE_ENV);
     console.log(`🚀 Server listening on http://localhost:${PORT}`);
 });

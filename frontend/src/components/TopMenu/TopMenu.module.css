@@ -1,0 +1,26 @@
+.topmenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.topmenu__left {
+  margin-left: 190px;
+}
+
+.topmenu__icon {
+  width: 35px;
+  height: 35px;
+}
+
+.topmenu__people {
+  width: 15px;
+  height: 15px;
+  color: #4caf50;
+  margin-right: 5px;
+}

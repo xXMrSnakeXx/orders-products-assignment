@@ -1,19 +1,16 @@
 import { Request, Response } from 'express';
 import { pool } from '../db.js';
-import { ProductInput, ProductWithOrderTitle } from '../types.js';
+import { Product, ProductInput } from '../types.js';
 
 export const getAllProducts = async (
-  req: Request<{}, {}, {}, {}>,
-  res: Response<ProductWithOrderTitle[] | { message: string }>
+  req: Request,
+  res: Response<Product[] | { message: string }>
 ) => {
   try {
-    const result = await pool.query<ProductWithOrderTitle>(`
-      SELECT 
-        p.*,
-        o.title AS order_title
-      FROM products p
-      JOIN orders o ON p.order_id = o.id
-      ORDER BY p.id ASC
+    const result = await pool.query<Product>(`
+SELECT p.*, o.title AS arrival_name
+FROM products p
+JOIN orders o ON p.order_id = o.id;
     `);
 
     res.status(200).json(result.rows);
@@ -25,7 +22,7 @@ export const getAllProducts = async (
 
 export const createProduct = async (
   req: Request<{}, {}, ProductInput>,
-  res: Response<ProductWithOrderTitle | { message: string }>
+  res: Response<Product | { message: string }>
 ) => {
   try {
     const {
@@ -42,17 +39,24 @@ export const createProduct = async (
       is_default_currency,
       order_id,
       date,
+      status,
+      condition,
+      username,
+      arrival_name,
+      group_name,
     } = req.body;
 
-    const result = await pool.query<ProductWithOrderTitle>(
+    const result = await pool.query<Product>(
       `INSERT INTO products (
         serial_number, is_new, photo, title, type, specification,
         guarantee_start, guarantee_end, price_usd, price_uah,
-        is_default_currency, order_id, date
+        is_default_currency, order_id, date,
+        status, condition, username, arrival_name, group_name
       ) VALUES (
         $1, $2, $3, $4, $5, $6,
         $7, $8, $9, $10,
-        $11, $12, $13
+        $11, $12, $13,
+        $14, $15, $16, $17, $18
       ) RETURNING *`,
       [
         serial_number,
@@ -68,6 +72,11 @@ export const createProduct = async (
         is_default_currency,
         order_id,
         date,
+        status,
+        condition,
+        username,
+        arrival_name,
+        group_name,
       ]
     );
 
@@ -80,7 +89,7 @@ export const createProduct = async (
 
 export const updateProduct = async (
   req: Request<{ id: string }, {}, ProductInput>,
-  res: Response<ProductWithOrderTitle | { message: string }>
+  res: Response<Product | { message: string }>
 ) => {
   try {
     const { id } = req.params;
@@ -98,9 +107,14 @@ export const updateProduct = async (
       is_default_currency,
       order_id,
       date,
+      status,
+      condition,
+      username,
+      arrival_name,
+      group_name,
     } = req.body;
 
-    const result = await pool.query<ProductWithOrderTitle>(
+    const result = await pool.query<Product>(
       `UPDATE products SET
         serial_number = $1,
         is_new = $2,
@@ -114,8 +128,13 @@ export const updateProduct = async (
         price_uah = $10,
         is_default_currency = $11,
         order_id = $12,
-        date = $13
-      WHERE id = $14
+        date = $13,
+        status = $14,
+        condition = $15,
+        username = $16,
+        arrival_name = $17,
+        group_name = $18
+      WHERE id = $19
       RETURNING *`,
       [
         serial_number,
@@ -131,6 +150,11 @@ export const updateProduct = async (
         is_default_currency,
         order_id,
         date,
+        status,
+        condition,
+        username,
+        arrival_name,
+        group_name,
         id,
       ]
     );

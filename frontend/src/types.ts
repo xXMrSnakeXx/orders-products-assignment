@@ -1,16 +1,3 @@
-export interface Order {
-  id: number;
-  title: string;
-  date: string;
-  description: string | null;
-}
-
-export interface OrderInput {
-  title: string;
-  date: string;
-  description?: string;
-}
-
 export interface Product {
   id: number;
   serial_number: number;
@@ -24,6 +11,7 @@ export interface Product {
   price_usd: number | null;
   price_uah: number | null;
   is_default_currency: string | null;
+  order_id: number;
   date: string;
   status: string | null;
   condition: string | null;
@@ -32,11 +20,18 @@ export interface Product {
   group_name: string | null;
 }
 
-export type ProductInput = Omit<Product, 'id'> & { order_id: number };
-
-export interface OrderWithProducts extends Order {
+export interface OrderWithProducts {
+  id: number;
+  title: string;
+  date: string;
+  description: string | null;
   productCount: number;
   totalUSD: number;
   totalUAH: number;
   products: Product[];
+}
+
+export interface Option {
+  value: string | null;
+  label: string | null;
 }
