@@ -162,7 +162,7 @@ PORT=4000
 
 ### Frontend
 
-**.env.development**
+**.env**
 ```
 VITE_SOCKET_URL=http://localhost:4000
 ```
