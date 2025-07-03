@@ -20,7 +20,7 @@
 
 ## Онлайн-доступ
 
-- Frontend (Vercel): https://orders-products.vercel.app
+- Frontend (Vercel): [https://orders-products.vercel.app](https://orders-products-assignment.vercel.app/orders)
 - Backend (Render API): https://orders-products-backend.onrender.com
 
 > Для полноценной работы фронтенд использует переменную окружения `VITE_SOCKET_URL`, указывающую на URL бекенда.
