@@ -75,7 +75,7 @@ npm run start:prod
 
 ### Frontend
 
-- Развёрнут на Vercel
+- Развёрнут на Vercel `https://orders-products-assignment.vercel.app/orders`
 - Для деплоя:
   - Указывается директория: `frontend`
   - Добавляется переменная окружения:  
