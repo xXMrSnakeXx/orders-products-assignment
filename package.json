@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "docker-compose up --build",
-    "prod": "npm run build:frontend && npm run start:backend:prod",
-    "build:frontend": "cd frontend && npm install && npm run build",
-    "start:backend:prod": "cd backend && npm install && npm run start:prod"
+    "dev": "docker-compose up --build"
   }
 }
