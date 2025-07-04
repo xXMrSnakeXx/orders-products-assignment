@@ -175,3 +175,6 @@ VITE_SOCKET_URL=http://localhost:4000
 - Backend подключён к облачной Railway БД
 - Frontend задеплоен на Vercel
 - WebSocket подключение работает (активные сессии)
+
+## Ссылка на видео
+https://www.loom.com/share/18c872b8016c4729b43240dd4cd4d98c?sid=d44273d4-fa24-49e7-b96e-0752c7dc0b8b
