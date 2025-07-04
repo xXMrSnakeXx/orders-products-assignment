@@ -20,7 +20,7 @@
 ## Онлайн-доступ
 
 - **Frontend** (Vercel): https://orders-products-assignment.vercel.app/orders  
-- **Backend** (Render API): https://orders-products-backend.onrender.com  
+- **Backend** (Render API): https://orders-products-assignment.onrender.com (/api/products, /api/orders)  
 
 > Для полноценной работы фронтенд использует переменную окружения `VITE_SOCKET_URL`, указывающую на URL бекенда.
 
@@ -112,7 +112,7 @@ npm run start:prod
   - Директория: `frontend`
   - Переменная окружения:
     ```
-    VITE_SOCKET_URL=https://orders-products-backend.onrender.com
+    VITE_SOCKET_URL= https://orders-products-assignment.onrender.com
     ```
 
 ---
